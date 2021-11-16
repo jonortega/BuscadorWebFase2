@@ -10,25 +10,27 @@ import componentesInternet.Web;
 
 public class Diccionario {
 	
-	private static Diccionario miDiccionario;
-	private ListaPalabras palabras;
-
-	/**
-	 * Constructora de la clase Diccionario
-	 */
-	public Diccionario() {
-		palabras = new ListaPalabras();
-	}
+	private static Diccionario instance;
+	private InterfacePalabras palabras;
 	
 	/**
 	 * Devuelve la única instancia de la clase
 	 * @return miDiccionario: la única instancia de la clase Diccionario
 	 */
 	public static Diccionario getInstance() {
-		if(miDiccionario == null) {
-			miDiccionario = new Diccionario();
+		if(instance == null) {
+			instance = new Diccionario();
 		}
-		return miDiccionario;
+		return instance;
+	}
+	
+	/**
+	 * Setter para el atributo palabras
+	 * @param diccionario: La lista de palabras del tipo 
+	 * 					   de dato que se le pasa
+	 */
+	public void setDiccionario(InterfacePalabras diccionario) {
+		this.palabras = diccionario;
 	}
 	
 	/**

@@ -2,7 +2,7 @@ package componentesDiccionario;
 
 import java.util.ArrayList;
 
-public class ListaPalabras {
+public class ListaPalabras implements InterfacePalabras {
 
 	private ArrayList<Palabra> palabras;
 	
@@ -17,6 +17,7 @@ public class ListaPalabras {
 	* Añade una palabra a la lista
 	* @param palabra: palabra a añadir
 	*/
+	@Override
 	public void anadirPalabra(Palabra palabra) {
 		palabras.add(palabra);
 	}
@@ -26,6 +27,7 @@ public class ListaPalabras {
 	* @param sPalabra: texto de la palabra a buscar
 	* @return la Palabra (si está en la lista), null en caso contrario
 	*/
+	@Override
 	public Palabra buscarPalabra(String sPalabra) {	
 		//Búsqueda dicotomica
 		int izq = 0;
