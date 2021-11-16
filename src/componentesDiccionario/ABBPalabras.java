@@ -1,12 +1,16 @@
 package componentesDiccionario;
 
-public class ABBPalabras implements InterfacePalabras {
-
-	/**
-	 * Constructora de la clase
-	 */
-	public ABBPalabras() {
+public class ABBPalabras<T> implements InterfacePalabras {
 	
+	private NodoABBPalabras<T> root;
+	
+	/**
+	 * Comprueba si el árbol es vacío
+	 * @return true - si el árbol es vacío
+	 * 		   false - si el árbol no es vacío
+	 */
+	public boolean isEmpty() {
+		return (this.root == null);
 	}
 
 	/**
