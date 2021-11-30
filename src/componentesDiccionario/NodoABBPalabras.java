@@ -1,5 +1,7 @@
 package componentesDiccionario;
 
+import java.util.LinkedList;
+
 public class NodoABBPalabras {
 	
 	Palabra info;
@@ -79,7 +81,7 @@ public class NodoABBPalabras {
 	*/
 	public LinkedList<Palabra> obtenerPalabrasAEliminar() {
 		LinkedList<Palabra> lista = new LinkedList<Palabra>();
-		if(this.info).getCoincidencias().isEmpty()) lista.add(this.info);
+		if(this.info.getCoincidencias().tamano() == 0) lista.add(this.info);
 		if(this.hasLeft()) lista.addAll(this.left.obtenerPalabrasAEliminar());
 		if(this.hasRight()) lista.addAll(this.right.obtenerPalabrasAEliminar());
 		return lista;

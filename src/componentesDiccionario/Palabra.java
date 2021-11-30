@@ -57,7 +57,7 @@ public class Palabra implements Comparable<Palabra> {
 	@Override
 	public int compareTo(Palabra o) {
 		Palabra p = (Palabra)o;
-		return (p.getLaPalabra().compareTo(this.laPalabra));
+		return (this.laPalabra.compareTo(p.getLaPalabra()));
 	}
 
 }
