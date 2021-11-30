@@ -37,6 +37,16 @@ public class ABBPalabras implements InterfacePalabras {
 	}
 	
 	/**
+	* Devuelve una lista con todas aquellas palabras del árbol que no sean
+	* palabra clave de ninguna web
+	* @return lista con las palabras a eliminar
+	*/
+	private LinkedList<Palabra> obtenerPalabrasAEliminar(){
+		if(this.isEmpty()) return new LinkedList<Palabra>();
+		else return root.obtenerPalabrasAEliminar();
+	}
+	
+	/**
 	* Elimina del �rbol la palabra pasada como par�metro
 	* Pre: la palabra como mucho est� una vez en el diccionario
 	* @param pal: palabra a eliminar
