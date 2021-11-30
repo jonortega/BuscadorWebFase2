@@ -46,5 +46,16 @@ public class Palabra {
 		System.out.println("----------------------");
 		System.out.println("Resultados: " + i);
 	}
+	
+	/**
+	 * Implementación de compareTo para la clase Plabra
+	 * @param palabra: la palabra con la que comparar
+	 * @return  0 - si la palabra es igual
+	 * 		   <0 - si la palabra recibida es mayor
+	 * 		   >0 - si la palabra recibida es menor
+	 */
+	public int compareTo(Palabra palabra) {
+		return this.getInfo().compareTo(palabra.getInfo());
+	}
 
 }

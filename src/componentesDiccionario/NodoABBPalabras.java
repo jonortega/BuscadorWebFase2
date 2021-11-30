@@ -46,7 +46,13 @@ public class NodoABBPalabras {
 	 * @param palabra: palabra a añadir
 	 */
 	public void anadirPalabra(Palabra palabra) {
-		
+		if(palabra.compareTo(this.info) < 0) {
+			if(this.hasLeft()) this.left.anadirPalabra(palabra);
+			else this.left = new NodoABBPalabras(palabra);
+		} else {
+			if(this.hasRight()) this.right.anadirPalabra(palabra);
+			else this.right = new NodoABBPalabras(palabra);
+		}
 	}
 
 }
