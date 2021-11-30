@@ -73,6 +73,19 @@ public class NodoABBPalabras {
 	}
 	
 	/**
+	* Devuelve una lista con todas aquellas palabras del árbol que no sean
+	* palabra clave de ninguna web
+	* @return lista con las palabras a eliminar
+	*/
+	public LinkedList<Palabra> obtenerPalabrasAEliminar() {
+		LinkedList<Palabra> lista = new LinkedList<Palabra>();
+		if(this.info).getCoincidencias().isEmpty()) lista.add(this.info);
+		if(this.hasLeft()) lista.addAll(this.left.obtenerPalabrasAEliminar());
+		if(this.hasRight()) lista.addAll(this.right.obtenerPalabrasAEliminar());
+		return lista;
+	}
+	
+	/**
 	 * Elimina el nodo con el menor valor del árbol
 	 * @return Clase auxiliar con el valor y la referencia al nodo
 	 */
