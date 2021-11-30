@@ -1,5 +1,7 @@
 package componentesDiccionario;
 
+import java.util.LinkedList;
+
 public class ABBPalabras implements InterfacePalabras {
 	
 	private NodoABBPalabras root;
@@ -33,6 +35,22 @@ public class ABBPalabras implements InterfacePalabras {
 		if(this.isEmpty()) return null;
 		else return this.root.buscarPalabra(sPalabra);
 	}
-
-
+	
+	/**
+	* Elimina del �rbol la palabra pasada como par�metro
+	* Pre: la palabra como mucho est� una vez en el diccionario
+	* @param pal: palabra a eliminar
+	*/
+	private void eliminarPalabra(Palabra pal) {
+		if(!this.isEmpty()) this.root.eliminarPalabra(pal);
+	}
+	
+	/**
+	* Haciendo uso de los métodos anteriores, obtiene la lista de palabras
+	* del árbol a eliminar y elimina cada una de ellas.
+	*/
+	public void filtrarPalabrasClave() {
+		LinkedList<Palabra> lista =  obtenerPalabrasAEliminar();
+		for(Palabra p : lista) eliminarPalabra(p);
+	}
 }

@@ -35,15 +35,15 @@ public class ListaPalabras implements InterfacePalabras {
 		int medio = (izq + der)/2;
 		Palabra devol = null;
 
-		while((izq < der) && (!palabras.get(medio).getInfo().equals(sPalabra))) {
-			if(palabras.get(medio).getInfo().compareToIgnoreCase(sPalabra) > 0) {
+		while((izq < der) && (!palabras.get(medio).getLaPalabra().equals(sPalabra))) {
+			if(palabras.get(medio).getLaPalabra().compareToIgnoreCase(sPalabra) > 0) {
 				der = medio-1;
 			} else {
 				izq = medio+1;
 			}
 			medio = (izq + der)/2;
 		}
-		if(palabras.get(medio).getInfo().equals(sPalabra)) devol = palabras.get(medio);
+		if(palabras.get(medio).getLaPalabra().equals(sPalabra)) devol = palabras.get(medio);
 		return devol;
 	}
 

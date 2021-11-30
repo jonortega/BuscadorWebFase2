@@ -3,13 +3,13 @@ package componentesDiccionario;
 import componentesInternet.ListaWebs;
 import componentesInternet.Web;
 
-public class Palabra {
+public class Palabra implements Comparable<Palabra> {
 
-	private String info;
+	private String laPalabra;
 	private ListaWebs coincidencias;
 	
 	public Palabra(String pal) {
-		info = pal;
+		laPalabra = pal;
 		coincidencias = new ListaWebs();
 	}
 	
@@ -17,8 +17,8 @@ public class Palabra {
 	 * Getter para el atributo info
 	 * @return El atributo info
 	 */
-	public String getInfo() {
-		return info;
+	public String getLaPalabra() {
+		return laPalabra;
 	}
 	
 	/**
@@ -34,7 +34,7 @@ public class Palabra {
 	 */
 	public void imprimirCoincidencias() {
 		int i = 0;
-		if(coincidencias.tamaño() == 0) {
+		if(coincidencias.tamano() == 0) {
 			System.out.print("No se han encontrado coincidencias\n");
 		} else {
 			for(Web w : coincidencias) {
@@ -46,7 +46,7 @@ public class Palabra {
 		System.out.println("----------------------");
 		System.out.println("Resultados: " + i);
 	}
-	
+
 	/**
 	 * Implementación de compareTo para la clase Plabra
 	 * @param palabra: la palabra con la que comparar
@@ -54,8 +54,10 @@ public class Palabra {
 	 * 		   <0 - si la palabra recibida es mayor
 	 * 		   >0 - si la palabra recibida es menor
 	 */
-	public int compareTo(Palabra palabra) {
-		return this.info.compareTo(palabra.info);
+	@Override
+	public int compareTo(Palabra o) {
+		Palabra p = (Palabra)o;
+		return (p.getLaPalabra().compareTo(this.laPalabra));
 	}
 
 }
