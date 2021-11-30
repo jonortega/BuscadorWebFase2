@@ -30,8 +30,8 @@ public class ABBPalabras implements InterfacePalabras {
 	*/
 	@Override
 	public Palabra buscarPalabra(String sPalabra) {
-		// TODO Auto-generated method stub
-		return null;
+		if(this.isEmpty()) return null;
+		else return this.root.buscarPalabra(sPalabra);
 	}
 
 

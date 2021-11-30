@@ -46,13 +46,29 @@ public class NodoABBPalabras {
 	 * @param palabra: palabra a añadir
 	 */
 	public void anadirPalabra(Palabra palabra) {
-		if(palabra.compareTo(this.info) < 0) {
+		if(palabra.compareTo(this.info) < 0) {	//Irá a la izquierda
 			if(this.hasLeft()) this.left.anadirPalabra(palabra);
 			else this.left = new NodoABBPalabras(palabra);
-		} else {
+		} else {								//Irá a la derecha
 			if(this.hasRight()) this.right.anadirPalabra(palabra);
 			else this.right = new NodoABBPalabras(palabra);
 		}
+	}
+	
+	/**
+	 * Busca una palabra en el árbol y la devuelve
+	 * @param sPalabra: texto de la palabra a buscar
+	 * @return la Palabra (si está en el árbol), null en caso contrario
+	 */
+	public Palabra buscarPalabra(String sPalabra) {
+		Palabra devol = null;
+		if(sPalabra.compareTo(this.info.getInfo()) == 0) devol = this.info;
+		else if(sPalabra.compareTo(this.info.getInfo()) < 0) {
+			if(this.hasLeft()) devol = this.left.buscarPalabra(sPalabra);
+		} else {
+			if(this.hasRight()) devol = this.right.buscarPalabra(sPalabra);
+		}
+		return devol;
 	}
 
 }
