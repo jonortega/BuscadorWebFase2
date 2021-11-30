@@ -3,6 +3,7 @@ package fase2;
 import java.io.IOException;
 import java.util.Scanner;
 
+import componentesDiccionario.ABBPalabras;
 import componentesDiccionario.Diccionario;
 import componentesInternet.Internet;
 
@@ -17,8 +18,12 @@ public class AplicacionWeb {
 		Internet internet = Internet.getInstance();
 		internet.inicializar("./data/index", "./data/pld-arc");
 		
+		ABBPalabras arbolDeNavidad = new ABBPalabras();
+		
 		Diccionario diccionario = Diccionario.getInstance();
-		diccionario.inicializar("./data/words.txt");
+		diccionario.inicializar("./data/wordsshuffle.txt");
+		
+		arbolDeNavidad.filtrarPalabrasClave();
 		
 		System.out.println();
 		

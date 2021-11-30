@@ -5,6 +5,18 @@ import java.util.LinkedList;
 public class ABBPalabras implements InterfacePalabras {
 	
 	private NodoABBPalabras root;
+
+	public ABBPalabras() {
+		this.root = null;
+	}
+	
+	public ABBPalabras(Palabra info) {
+		this.root = new NodoABBPalabras(info);
+	}
+	
+	public ABBPalabras(NodoABBPalabras root) {
+		this.root = root;
+	}
 	
 	/**
 	 * Comprueba si el árbol es vacío
