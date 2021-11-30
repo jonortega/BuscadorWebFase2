@@ -1,8 +1,8 @@
 package componentesDiccionario;
 
-public class ABBPalabras<T> implements InterfacePalabras {
+public class ABBPalabras implements InterfacePalabras {
 	
-	private NodoABBPalabras<T> root;
+	private NodoABBPalabras root;
 	
 	/**
 	 * Comprueba si el árbol es vacío
@@ -19,8 +19,8 @@ public class ABBPalabras<T> implements InterfacePalabras {
 	*/
 	@Override
 	public void anadirPalabra(Palabra palabra) {
-		// TODO Auto-generated method stub
-		
+		if(this.isEmpty()) this.root = new NodoABBPalabras(palabra);
+		else this.root.anadirPalabra(palabra);
 	}
 
 	/**
@@ -33,5 +33,6 @@ public class ABBPalabras<T> implements InterfacePalabras {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }

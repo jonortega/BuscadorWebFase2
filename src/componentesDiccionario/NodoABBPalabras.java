@@ -1,16 +1,16 @@
 package componentesDiccionario;
 
-public class NodoABBPalabras<T> {
+public class NodoABBPalabras {
 	
-	T info;
-	NodoABBPalabras<T> left;
-	NodoABBPalabras<T> right;
+	Palabra info;
+	NodoABBPalabras left;
+	NodoABBPalabras right;
 
 	/**
 	 * Constuctora de la clase
 	 * @param info: La información del nodo
 	 */
-	public NodoABBPalabras(T info) {
+	public NodoABBPalabras(Palabra info) {
 		this.info = info;
 	}
 	
@@ -39,6 +39,14 @@ public class NodoABBPalabras<T> {
 	 */
 	public boolean isLeaf() {
 		return (this.left == null && this.right == null);
+	}
+	
+	/**
+	 * Añade una palabra al árbol
+	 * @param palabra: palabra a añadir
+	 */
+	public void anadirPalabra(Palabra palabra) {
+		
 	}
 
 }
