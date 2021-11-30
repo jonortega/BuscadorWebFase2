@@ -69,10 +69,10 @@ public class Diccionario {
 		for(Web w : webs) {
 			for(int i=4; i<10; i++) {
 				int j = 0;
-				while(i+j <= w.getNombre().length()) {
-					String substring = w.getNombre().substring(j, i+j-1);																	//Obtener los substrings
+				while((i+j <= w.getNombre().length()) && (i+j<11)) {
+					String substring = w.getNombre().substring(j, i+j);																	//Obtener los substrings
 					Palabra palEncontrada = palabras.buscarPalabra(substring);																//Buscar ese substring en el diccionario
-					if((palEncontrada != null) && (palEncontrada.getInfo().length() >= 4) && (palEncontrada.getInfo().length() <= 10)) {	//Si coincide alguna palabra del diccionario
+					if((palEncontrada != null) && (palEncontrada.getLaPalabra().length() >= 4) && (palEncontrada.getLaPalabra().length() <= 10)) {	//Si coincide alguna palabra del diccionario
 						palEncontrada.getCoincidencias().anadirWeb(w);																		//Añadir esa web a la lista de coincidencias de la palabra
 					}
 					j++;

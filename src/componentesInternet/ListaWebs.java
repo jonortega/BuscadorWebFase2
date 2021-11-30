@@ -15,7 +15,7 @@ public class ListaWebs implements Iterable<Web>{
 	 * Devuelve el tamaño de la lista
 	 * @return El tamaño de webs
 	 */
-	public int tamaño() {
+	public int tamano() {
 		return webs.size();
 	}
 	
@@ -58,7 +58,7 @@ public class ListaWebs implements Iterable<Web>{
 
 		@Override
 		public boolean hasNext() {
-			return (actual < webs.size()-1);
+			return (actual < webs.size());
 		}
 
 		@Override

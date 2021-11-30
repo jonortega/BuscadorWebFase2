@@ -1,8 +1,8 @@
 package componentesDiccionario;
 
-public class ABBPalabras<T> implements InterfacePalabras {
+public class ABBPalabras<Palabra extends Comparable<Palabra>> implements InterfacePalabras {
 	
-	private NodoABBPalabras<T> root;
+	private NodoABBPalabras<Palabra> root;
 	
 	/**
 	 * Comprueba si el √°rbol es vac√≠o
@@ -32,6 +32,19 @@ public class ABBPalabras<T> implements InterfacePalabras {
 	public Palabra buscarPalabra(String sPalabra) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	/**
+	* Elimina del ·rbol la palabra pasada como par·metro
+	* Pre: la palabra como mucho est· una vez en el diccionario
+	* @param pal: palabra a eliminar
+	*/
+	private void eliminarPalabra(Palabra pal) {
+		if(!this.isEmpty()) this.eliminarPalabra(pal);
+	}
+	
+	public void eliminarPalabraa(Palabra pal) {
+		root.eliminarPalabra(pal);
 	}
 
 }
