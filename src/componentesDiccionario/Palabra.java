@@ -55,7 +55,7 @@ public class Palabra {
 	 * 		   >0 - si la palabra recibida es menor
 	 */
 	public int compareTo(Palabra palabra) {
-		return this.getInfo().compareTo(palabra.getInfo());
+		return this.info.compareTo(palabra.info);
 	}
 
 }
