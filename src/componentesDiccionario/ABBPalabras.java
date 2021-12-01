@@ -6,14 +6,25 @@ public class ABBPalabras implements InterfacePalabras {
 	
 	private NodoABBPalabras root;
 
+	/**
+	 * Constructora de la clase sin parametros
+	 */
 	public ABBPalabras() {
 		this.root = null;
 	}
 	
+	/**
+	 * Constructora de la clase con parametro
+	 * @param info: el info del nodo root
+	 */
 	public ABBPalabras(Palabra info) {
 		this.root = new NodoABBPalabras(info);
 	}
 	
+	/**
+	 * Constructora de la clase con parametro
+	 * @param root: el nodo root
+	 */
 	public ABBPalabras(NodoABBPalabras root) {
 		this.root = root;
 	}

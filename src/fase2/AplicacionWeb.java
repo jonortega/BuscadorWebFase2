@@ -19,8 +19,9 @@ public class AplicacionWeb {
 		internet.inicializar("./data/index", "./data/pld-arc");
 		
 		ABBPalabras arbolDeNavidad = new ABBPalabras();
-		
 		Diccionario diccionario = Diccionario.getInstance();
+		diccionario.setDiccionario(arbolDeNavidad);
+		
 		diccionario.inicializar("./data/wordsshuffle.txt");
 		
 		arbolDeNavidad.filtrarPalabrasClave();

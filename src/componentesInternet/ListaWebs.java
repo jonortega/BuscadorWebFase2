@@ -58,7 +58,7 @@ public class ListaWebs implements Iterable<Web>{
 
 		@Override
 		public boolean hasNext() {
-			return (actual < webs.size());
+			return (actual < webs.size()-1);
 		}
 
 		@Override

@@ -67,9 +67,9 @@ public class Diccionario {
 		ListaWebs webs = internet.getWebs();
 		System.out.println("Computando webs...");
 		for(Web w : webs) {
-			for(int i=4; i<10; i++) {
+			for(int i=4; i<11; i++) {
 				int j = 0;
-				while((i+j <= w.getNombre().length()) && (i+j<11)) {
+				while((i+j <= w.getNombre().length())) {
 					String substring = w.getNombre().substring(j, i+j);																	//Obtener los substrings
 					Palabra palEncontrada = palabras.buscarPalabra(substring);																//Buscar ese substring en el diccionario
 					if((palEncontrada != null) && (palEncontrada.getLaPalabra().length() >= 4) && (palEncontrada.getLaPalabra().length() <= 10)) {	//Si coincide alguna palabra del diccionario
