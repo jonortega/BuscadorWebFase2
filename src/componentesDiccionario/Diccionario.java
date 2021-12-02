@@ -2,11 +2,9 @@ package componentesDiccionario;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import componentesInternet.Internet;
-import componentesInternet.ListaWebs;
 import componentesInternet.Web;
 
 public class Diccionario {
@@ -75,7 +73,7 @@ public class Diccionario {
 					if(palEncontrada != null) palEncontrada.getCoincidencias().anadirWeb(w);																		//Añadir esa web a la lista de coincidencias de la palabra
 					j++;
 				}//Para cada subpalabra posible dentro de la palabra
-			}//Para cada tamaño de subpalabra {4, 5, 6, 7, 8, 9, 10}
+			}//Para cada tamano de subpalabra {4, 5, 6, 7, 8, 9, 10}
 		}//Para cada palabra del diccionario
 		System.out.println("Webs computadas correctamente.");
 	}

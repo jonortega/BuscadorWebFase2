@@ -38,7 +38,8 @@ public class Web {
 	 * @param idEnlace: el id de la web con la que existe un enlace
 	 */
 	public void anadirEnlace(int idEnlace) {
-		links.anadirWeb(new Web(idEnlace, ""));
+		Internet internet = Internet.getInstance();
+		links.anadirWeb(internet.getWebs().getWebs().get(idEnlace));
 	}
 
 }
