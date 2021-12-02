@@ -25,6 +25,10 @@ public class Web {
 		return indice;
 	}
 	
+	/**
+	 * Getter para el atributo nombre
+	 * @return nombre: el url de la web
+	 */
 	public String getNombre() {
 		return nombre;
 	}

@@ -7,15 +7,15 @@ public class ListaPalabras implements InterfacePalabras {
 	private ArrayList<Palabra> palabras;
 	
 	/**
-	 * Constructora: Genera una lista vacia
+	 * Constructora de la clase ListaPalabras: Genera una lista vacia
 	 */
 	public ListaPalabras() {
 		palabras = new ArrayList<Palabra>();
 	}
 	
 	/**
-	* Añade una palabra a la lista
-	* @param palabra: palabra a añadir
+	* Anade una palabra a la lista
+	* @param palabra: palabra a anadir
 	*/
 	@Override
 	public void anadirPalabra(Palabra palabra) {
@@ -23,13 +23,12 @@ public class ListaPalabras implements InterfacePalabras {
 	}
 	
 	/**
-	* Busca una palabra en la lista y la devuelve
+	* Busca una palabra en la lista y la devuelve. Se hacen con busqueda dicotomica
 	* @param sPalabra: texto de la palabra a buscar
-	* @return la Palabra (si está en la lista), null en caso contrario
+	* @return la Palabra (si esta en la lista), null en caso contrario
 	*/
 	@Override
-	public Palabra buscarPalabra(String sPalabra) {	
-		//Búsqueda dicotomica
+	public Palabra buscarPalabra(String sPalabra) {
 		int izq = 0;
 		int der = palabras.size()-1;
 		int medio = (izq + der)/2;

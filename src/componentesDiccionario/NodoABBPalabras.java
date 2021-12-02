@@ -10,33 +10,33 @@ public class NodoABBPalabras {
 
 
 	/**
-	 * Constuctora de la clase
-	 * @param info: La información del nodo
+	 * Constructora de la clase
+	 * @param info: La informacion del nodo
 	 */
 	public NodoABBPalabras(Palabra info) {
 		this.info = info;
 	}
 	
 	/**
-	 * Comprueba si el nodo tiene árbol izquierdo
-	 * @return true - si tiene árbol izquierdo
-	 * 		   false - si no tiene árbol izquierdo
+	 * Comprueba si el nodo tiene arbol izquierdo
+	 * @return true - si tiene subarbol izquierdo
+	 * 		   false - si no tiene subarbol izquierdo
 	 */
 	public boolean hasLeft() {
 		return (this.left != null);
 	}
 	
 	/**
-	 * Comprueba si el nodo tiene árbol derecho
-	 * @return true - si tiene árbol derecho
-	 * 		   false - si no tiene árbol derecho
+	 * Comprueba si el nodo tiene arbol derecho
+	 * @return true - si tiene subarbol derecho
+	 * 		   false - si no tiene subarbol derecho
 	 */
 	public boolean hasRight() {
 		return (this.right != null);
 	}
 	
 	/**
-	 * Comprueba si el nodo es una hoja del árbol
+	 * Comprueba si el nodo es una hoja del arbol
 	 * @return true - si es hoja
 	 * 		   false - si no es hoja
 	 */
@@ -45,23 +45,23 @@ public class NodoABBPalabras {
 	}
 	
 	/**
-	 * Añade una palabra al árbol
-	 * @param palabra: palabra a añadir
+	 * Anade una palabra al arbol
+	 * @param palabra: palabra a anadir
 	 */
 	public void anadirPalabra(Palabra palabra) {
-		if(palabra.compareTo(this.info) < 0) {	//Irá a la izquierda
+		if(palabra.compareTo(this.info) < 0) {	//Ira a la izquierda
 			if(this.hasLeft()) this.left.anadirPalabra(palabra);
 			else this.left = new NodoABBPalabras(palabra);
-		} else {								//Irá a la derecha
+		} else {								//Ira a la derecha
 			if(this.hasRight()) this.right.anadirPalabra(palabra);
 			else this.right = new NodoABBPalabras(palabra);
 		}
 	}
 	
 	/**
-	 * Busca una palabra en el árbol y la devuelve
+	 * Busca una palabra en el arbol y la devuelve
 	 * @param sPalabra: texto de la palabra a buscar
-	 * @return la Palabra (si está en el árbol), null en caso contrario
+	 * @return la Palabra (si esta en el arbol), null en caso contrario
 	 */
 	public Palabra buscarPalabra(String sPalabra) {
 		Palabra devol = null;
@@ -75,7 +75,7 @@ public class NodoABBPalabras {
 	}
 	
 	/**
-	* Devuelve una lista con todas aquellas palabras del árbol que no sean
+	* Devuelve una lista con todas aquellas palabras del arbol que no sean
 	* palabra clave de ninguna web
 	* @return lista con las palabras a eliminar
 	*/
@@ -88,15 +88,15 @@ public class NodoABBPalabras {
 	}
 	
 	/**
-	 * Elimina el nodo con el menor valor del árbol
+	 * Elimina el nodo con el menor valor del arbol
 	 * @return Clase auxiliar con el valor y la referencia al nodo
 	 */
 	public ResultadoRemoveMin removeMin() {
 		   ResultadoRemoveMin resul = new ResultadoRemoveMin();
-		   if(!this.hasLeft()) {//El m�nimo es el actual
+		   if(!this.hasLeft()) {//El minimo es el actual
 		      resul.elValor = this.info;
 		      resul.elNodo = this.right; 
-		   }else { //El m�nimo est� en el sub�rbol izquierdo
+		   }else { //El minimo esta en el subarbol izquierdo
 		      ResultadoRemoveMin resulLeft = this.left.removeMin();
 		      this.left = resulLeft.elNodo; 
 		      resul.elValor = resulLeft.elValor;
@@ -106,17 +106,17 @@ public class NodoABBPalabras {
 	}
 	
 	/**
-	* Elimina del �rbol la palabra pasada como par�metro
-	* Pre: la palabra como mucho est� una vez en el diccionario
+	* Elimina del arbol la palabra pasada como parametro
+	* Pre: la palabra como mucho esta una vez en el diccionario
 	* @param pal: palabra a eliminar
 	*/
 	public NodoABBPalabras eliminarPalabra(Palabra pal) {
 		int comp = pal.compareTo(this.info);
-		if(comp==0) {//Caso (a): this es el nodo a eliminar
-			if(!this.hasLeft()) return this.right;  //Caso (a1)
+		if(comp==0) {// this es el nodo a eliminar
+			if(!this.hasLeft()) return this.right;
 		    else {
-		    	if(!this.hasRight()) return this.left; //Caso (a2)
-		    	else {//Caso (a3): Tiene los dos subarboles, sustituir por el valor m�nimo del subarbol derecho
+		    	if(!this.hasRight()) return this.left;
+		    	else {
 		    		ResultadoRemoveMin min = this.right.removeMin();
 		        	this.right = min.elNodo;
 		        	this.info = min.elValor;
@@ -124,9 +124,9 @@ public class NodoABBPalabras {
 		    	}
 		    }
 		}else {
-			if(comp<0){//Caso (b) El elemento a eliminar, si est�, estar� en el sub�rbol izq
+			if(comp<0){// El elemento a eliminar, si esta, estaria en el subarbol izquierdo
 		    	if(this.hasLeft()) this.left = this.left.eliminarPalabra(pal);
-		    }else {//comp>0: Caso (c) El elemento a eliminar, si est�, estar� en el sub�rbol dcho
+		    }else {// El elemento a eliminar, si esta, estaria en el subarbol derecho
 		    	if (this.hasRight()) this.right = this.right.eliminarPalabra(pal);
 		    }
 			return this;

@@ -7,15 +7,15 @@ public class ABBPalabras implements InterfacePalabras {
 	private NodoABBPalabras root;
 
 	/**
-	 * Constructora de la clase sin parametros
+	 * Constructora de la clase ABBPalabras
 	 */
 	public ABBPalabras() {
 		this.root = null;
 	}
 	
 	/**
-	 * Constructora de la clase con parametro
-	 * @param info: el info del nodo root
+	 * Constructora de la clase ABBPalabras
+	 * @param info: el info del nodo raiz
 	 */
 	public ABBPalabras(Palabra info) {
 		this.root = new NodoABBPalabras(info);
@@ -23,24 +23,24 @@ public class ABBPalabras implements InterfacePalabras {
 	
 	/**
 	 * Constructora de la clase con parametro
-	 * @param root: el nodo root
+	 * @param root: el nodo raiz
 	 */
 	public ABBPalabras(NodoABBPalabras root) {
 		this.root = root;
 	}
 	
 	/**
-	 * Comprueba si el árbol es vacío
-	 * @return true - si el árbol es vacío
-	 * 		   false - si el árbol no es vacío
+	 * Comprueba si el arbol es vacio
+	 * @return true - si el arbol es vacio
+	 * 		   false - si el arbol no es vacio
 	 */
 	public boolean isEmpty() {
 		return (this.root == null);
 	}
 
 	/**
-	* Añade una palabra a la lista
-	* @param palabra: palabra a añadir
+	* Anade una palabra a la lista
+	* @param palabra: palabra a anadir
 	*/
 	@Override
 	public void anadirPalabra(Palabra palabra) {
@@ -51,7 +51,7 @@ public class ABBPalabras implements InterfacePalabras {
 	/**
 	* Busca una palabra en la lista y la devuelve
 	* @param sPalabra: texto de la palabra a buscar
-	* @return la Palabra (si está en la lista), null en caso contrario
+	* @return la Palabra (si esta en la lista), null en caso contrario
 	*/
 	@Override
 	public Palabra buscarPalabra(String sPalabra) {
@@ -60,18 +60,18 @@ public class ABBPalabras implements InterfacePalabras {
 	}
 	
 	/**
-	* Devuelve una lista con todas aquellas palabras del árbol que no sean
+	* Devuelve una lista con todas aquellas palabras del arbol que no sean
 	* palabra clave de ninguna web
 	* @return lista con las palabras a eliminar
 	*/
-	private LinkedList<Palabra> obtenerPalabrasAEliminar(){
+	private LinkedList<Palabra> obtenerPalabrasAEliminar() {
 		if(this.isEmpty()) return new LinkedList<Palabra>();
 		else return root.obtenerPalabrasAEliminar();
 	}
 	
 	/**
-	* Elimina del �rbol la palabra pasada como par�metro
-	* Pre: la palabra como mucho est� una vez en el diccionario
+	* Elimina del arbol la palabra pasada como parametro
+	* Pre: la palabra como mucho esta una vez en el diccionario
 	* @param pal: palabra a eliminar
 	*/
 	private void eliminarPalabra(Palabra pal) {
@@ -79,8 +79,8 @@ public class ABBPalabras implements InterfacePalabras {
 	}
 	
 	/**
-	* Haciendo uso de los métodos anteriores, obtiene la lista de palabras
-	* del árbol a eliminar y elimina cada una de ellas.
+	* Haciendo uso de los metodos anteriores, obtiene la lista de palabras
+	* del arbol a eliminar y elimina cada una de ellas.
 	*/
 	public void filtrarPalabrasClave() {
 		LinkedList<Palabra> lista =  obtenerPalabrasAEliminar();

@@ -20,8 +20,8 @@ public class Internet {
 	}
 	
 	/**
-	 * Devuelve la única instancia de la clase
-	 * @return miInternet: la única instancia de la clase Internet
+	 * Devuelve la unica instancia de la clase
+	 * @return miInternet: la unica instancia de la clase Internet
 	 */
 	public static Internet getInstance() {
 		if(miInternet == null) {

@@ -3,69 +3,50 @@ package componentesInternet;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class ListaWebs implements Iterable<Web>{
+public class ListaWebs {
 	
 	private ArrayList<Web> webs;
 
+	/**
+	 * Constructora de la clase ListaWebs
+	 */
 	public ListaWebs() {
 		webs = new ArrayList<Web>();
 	}
 	
 	/**
-	 * Devuelve el tamaño de la lista
-	 * @return El tamaño de webs
+	 * Devuelve el tamano de la lista
+	 * @return El tamano de webs
 	 */
 	public int tamano() {
 		return webs.size();
 	}
 	
 	/**
-	 * Añade una web a la lista
-	 * @param web: la web a añadir
-	 * PRE: web no está en la lista
+	 * Getter del atributo webs.
+	 * @return un ArrayList con la lista de las webs.
+	 */
+	public ArrayList<Web> getWebs() {
+		return this.webs;
+	}
+	
+	/**
+	 * Anade una web a la lista
+	 * @param web: la web a anadir
+	 * PRE: web no esta en la lista
 	 */
 	public void anadirWeb(Web web) {
 		webs.add(web);
 	}
 	
 	/**
-	* Añade un enlace a una web de la lista
+	* Anade un enlace a una web de la lista
 	* @param idWebOrigen: id de la web de origen
 	* @param idWebDestino: id de la web de destino
-	* PRE: las webs con id idWebOrigen e idWebDestino están en la lista
+	* PRE: las webs con id idWebOrigen e idWebDestino estan en la lista
 	*/ 
 	public void anadirEnlace(int idWebOrigen, int idWebDestino) {
 		webs.get(idWebOrigen).anadirEnlace(idWebDestino);
 	}
 
-	/**
-	 * Devuelve el iterador para la clase ListaWebs
-	 */
-	@Override
-	public Iterator<Web> iterator() {
-		return (new IteratorParaListaWebs());
-	}
-	
-	/**
-	 * Clase que implementa el iterador para ListaWebs
-	 */
-	private class IteratorParaListaWebs implements Iterator<Web>{
-		private int actual;
-		
-		public IteratorParaListaWebs() {
-			actual = 0;
-		}
-
-		@Override
-		public boolean hasNext() {
-			return (actual < webs.size()-1);
-		}
-
-		@Override
-		public Web next() {
-			actual++;
-			return (webs.get(actual));
-		}
-	}
-	
 }
