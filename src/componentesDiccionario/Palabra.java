@@ -1,7 +1,6 @@
 package componentesDiccionario;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import componentesInternet.ListaWebs;
 import componentesInternet.Web;
